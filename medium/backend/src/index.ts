@@ -1,9 +1,42 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
+app.post('/api/v1/signup', (c) => {
+	return c.json({
+		message: 'Singup',
+	});
+});
+
+app.post('/api/v1/signin', (c) =>{
+  return c.json({
+    message: 'SingIn'
+  });
+});
+
+app.post('/api/v1/blog', (c)=>{
+  return c.json({
+    message: 'Post Blog'
+  });
 })
 
-export default app
+app.put('/api/v1/blog', (c)=>{
+  return c.json({
+    message: 'Get blog'
+  });
+});
+
+app.get('/api/v1/:id', (c)=>{
+  return c.json({
+    message: 'Get blog'
+  });
+})
+
+app.get('/api/v1/blog/bulk', (c)=>{
+  return c.json({
+    message: 'Get uld blog'
+  });
+})
+
+export default app;
+
