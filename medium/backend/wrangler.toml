@@ -3,6 +3,4 @@ compatibility_date = "2023-12-01"
 
 [vars]
 DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiYjVhOWQzODctMDNhZC00Njk1LWJkZDYtMGI3MDU4ZjIwNGZiIiwidGVuYW50X2lkIjoiMzBiZTgzZjg3ZDhlMzNkODg5NTZhMjdhZjVlMzkwNjhhNGU5NTkzOTg5MjkzOWE1NGRlMzY4N2ZhZWIxMjQzMyIsImludGVybmFsX3NlY3JldCI6IjA3ZjRhM2E5LTJkOTYtNDJhMC1hNjJmLWI5ZDc3MGYwYTZjYSJ9.IvhhUHwjSQvCRe-ViNZBlijRWelGD-RhzfypFkaifgw"
-
-[vars]
 SECRET_KEY = "mySecretKey"

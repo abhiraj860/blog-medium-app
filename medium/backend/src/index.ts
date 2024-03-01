@@ -16,6 +16,7 @@ app.post("/api/v1/signup", async (c) => {
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
  	
+  console.log("########################################");
   const body = await c.req.json();
   const user = await prisma.user.create({
 	data: {
@@ -23,10 +24,8 @@ app.post("/api/v1/signup", async (c) => {
 		password: body.password,
 	},
   })
-
-  const secret = c.env.SECRET_KEY;
-
-  const token = await sign({id: user.id}, secret);
+//   return c.text("hello");
+  const token = await sign({id: user.id}, c.env.SECRET_KEY);
   
   return c.json({
 	jwt: token
