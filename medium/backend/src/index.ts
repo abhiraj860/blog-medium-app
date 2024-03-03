@@ -11,12 +11,11 @@ const app = new Hono<{
 	}
 }>();
 
-app.post("/api/v1/signup", async (c) => {
+app.post('/api/v1/signup', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
  	
-  console.log("########################################");
   const body = await c.req.json();
   const user = await prisma.user.create({
 	data: {
@@ -24,12 +23,12 @@ app.post("/api/v1/signup", async (c) => {
 		password: body.password,
 	},
   })
-//   return c.text("hello");
-  const token = await sign({id: user.id}, c.env.SECRET_KEY);
+  return c.text("hello");
+//   const token = await sign({id: user.id}, c.env.SECRET_KEY);
   
-  return c.json({
-	jwt: token
-  });
+//   return c.json({
+// 	jwt: token
+//   });
 });
 
 app.post("/api/v1/signin", (c) => {
