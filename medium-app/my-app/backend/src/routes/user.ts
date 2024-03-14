@@ -23,7 +23,7 @@ userRouter.post('/signup', async (c) => {
   const prisma = new PrismaClient({
       datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate())
-
+  
   try {
     const user = await prisma.user.create({
       data:{
@@ -42,6 +42,9 @@ userRouter.post('/signup', async (c) => {
     return c.text('Invalid');
   }
 })
+
+
+
 
 userRouter.post('/signin', async (c) => {
   const body = await c.req.json();
@@ -64,7 +67,7 @@ userRouter.post('/signin', async (c) => {
       }
     })
     if(!user)  {
-      c.status(403); // unauthorised 
+      c.status(403);  
       return c.json({
         message: "Incorrect credentials"
       });
@@ -78,6 +81,4 @@ userRouter.post('/signin', async (c) => {
     c.status(411);
     return c.text('Invalid');
   }
-
-  return c.text('Hello Hono!')
 })
