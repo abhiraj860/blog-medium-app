@@ -6,11 +6,14 @@ import { useBlogs } from "../hooks";
 export const Blogs = () => {
     const {loading, blogs} = useBlogs();
     
-    // if(loading) {
+    if(loading) {
         return <div>
             <Appbar />
             <div className="flex justify-center">
-                <div>
+                <div className="w-3/5">
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
                     <Skeleton />
                     <Skeleton />
                     <Skeleton />
@@ -18,7 +21,7 @@ export const Blogs = () => {
                 </div>
             </div>
         </div>
-    // }
+    }
 
 	return (
         <div>
