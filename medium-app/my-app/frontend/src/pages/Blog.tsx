@@ -9,6 +9,7 @@ export function Blog() {
     const {loading, blog} = getBlog({
         id: id || ""   
     });
+    
     if(loading || !blog) {
         return <div>
             <Appbar /> 
@@ -21,6 +22,7 @@ export function Blog() {
             
         </div>
     }
+    
     return <div>
         <FullBlog blog={blog}/>
     </div>
